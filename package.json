@@ -1,0 +1,11 @@
+{
+  "name": "kolmo-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Kolmo Construction — Seattle home remodeling cost estimator",
+  "type": "module",
+  "keywords": ["mcp", "model-context-protocol", "home-remodeling", "construction", "cost-estimator", "seattle"],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
