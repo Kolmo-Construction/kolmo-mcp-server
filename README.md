@@ -11,8 +11,10 @@ A live [Model Context Protocol](https://modelcontextprotocol.io) server for Seat
 ```bash
 # Claude Code
 claude mcp add --transport http kolmo https://www.kolmo.io/mcp
+```
 
-# Claude Desktop / claude_desktop_config.json
+```json
+// Claude Desktop / claude_desktop_config.json
 {
   "mcpServers": {
     "kolmo": {
@@ -28,15 +30,15 @@ claude mcp add --transport http kolmo https://www.kolmo.io/mcp
 | Tool | Description |
 |------|-------------|
 | `get_business_info` | Company info: contact, hours, service area, license |
-| `list_services` | All residential remodeling services with slugs and URLs |
-| `get_service` | Full details for a specific service by slug |
+| `list_services` | Residential remodeling services — supports keyword `search` and pagination |
+| `get_service` | Full details for a service by slug; suggests similar slugs if not found |
 | `list_commercial_services` | Commercial construction services (office, retail, industrial, hospitality) |
-| `list_projects` | Completed projects with before/after photos |
-| `get_project` | Full project details including images and testimonial |
-| `list_blog_posts` | Published blog posts on remodeling costs and tips |
+| `list_projects` | Completed projects with before/after photos — supports keyword `search`, `category` filter, and pagination |
+| `get_project` | Full project details including images and testimonial; suggests similar slugs if not found |
+| `list_blog_posts` | Published blog posts — filterable by `tag` and `author`, with pagination |
 | `get_blog_post` | Full markdown content of a blog post by slug |
-| `submit_contact_request` | Submit a quote request on behalf of a user |
-| `list_project_types` | All 8 supported calculator project types with required fields |
+| `submit_contact_request` | Submit a quote request on behalf of a user; supports `dryRun: true` to preview without submitting |
+| `list_project_types` | All 8 supported calculator project types with required input fields |
 | `get_material_options` | Valid material IDs for flooring, paint, decking, etc. |
 | `get_estimate` | Calculate itemized cost estimate with labor, materials, and timeline |
 
