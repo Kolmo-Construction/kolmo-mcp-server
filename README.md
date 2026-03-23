@@ -14,7 +14,7 @@ claude mcp add --transport http kolmo https://www.kolmo.io/mcp
 ```
 
 ```json
-// Claude Desktop / claude_desktop_config.json
+// Claude Desktop — claude_desktop_config.json
 {
   "mcpServers": {
     "kolmo": {
