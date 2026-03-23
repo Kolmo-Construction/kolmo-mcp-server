@@ -2,6 +2,8 @@
 
 A live [Model Context Protocol](https://modelcontextprotocol.io) server for Seattle-area home remodeling cost estimation. No authentication required.
 
+[![Kolmo Construction MCP server](https://glama.ai/mcp/servers/Kolmo-Construction/kolmo-mcp-server/badges/card.svg)](https://glama.ai/mcp/servers/Kolmo-Construction/kolmo-mcp-server)
+
 **Endpoint:** `https://www.kolmo.io/mcp`
 **Transport:** Streamable HTTP
 **Discovery:** `https://www.kolmo.io/.well-known/mcp.json`
