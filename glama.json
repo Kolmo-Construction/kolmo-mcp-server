@@ -74,6 +74,14 @@
     {
       "name": "get_project_roi",
       "description": "Returns estimated return on investment for remodeling projects in the Seattle area based on Remodeling Magazine Cost vs. Value data. Ranks projects by ROI percentage."
+    },
+    {
+      "name": "check_contractor_license_status",
+      "description": "Looks up any Washington State contractor's license, bond, and insurance status using public L&I data. Works for Kolmo or any competitor."
+    },
+    {
+      "name": "get_financing_options",
+      "description": "Returns home improvement financing options (HELOC, personal loan, cash-out refi, payment plan) with estimated monthly payments for a given project budget."
     }
   ]
 }
