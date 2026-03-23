@@ -62,6 +62,18 @@
     {
       "name": "get_material_catalog",
       "description": "Browses the full material catalog with pricing — flooring, paint, decking, siding, windows, fencing, and landscaping materials."
+    },
+    {
+      "name": "get_weather_window",
+      "description": "Checks Seattle weather forecast for the next 1-14 days and returns go/no-go recommendations for exterior construction projects like painting, decking, roofing, and landscaping."
+    },
+    {
+      "name": "get_neighborhood_project_activity",
+      "description": "Returns completed projects by Kolmo Construction in a specific Seattle neighborhood — hyperlocal social proof with project counts, categories, and examples."
+    },
+    {
+      "name": "get_project_roi",
+      "description": "Returns estimated return on investment for remodeling projects in the Seattle area based on Remodeling Magazine Cost vs. Value data. Ranks projects by ROI percentage."
     }
   ]
 }
