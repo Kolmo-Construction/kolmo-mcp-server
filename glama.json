@@ -8,6 +8,14 @@
       "description": "Returns business details: name, license, address, hours, phone, email, rating, and service area."
     },
     {
+      "name": "get_author_bio",
+      "description": "Get the biography, credentials, expertise areas, and recent articles for a Kolmo blog author."
+    },
+    {
+      "name": "search_content",
+      "description": "Search across all Kolmo content — services, projects, and blog posts — with a single keyword query. Returns ranked results grouped by type."
+    },
+    {
       "name": "list_services",
       "description": "Lists all residential remodeling services offered by Kolmo Construction. Supports keyword search and pagination."
     },
@@ -17,7 +25,7 @@
     },
     {
       "name": "list_commercial_services",
-      "description": "Lists commercial construction services for Seattle-area businesses."
+      "description": "List commercial construction services. Filter by category: office, retail, industrial, hospitality, public. The public category covers government contracts — SCS #7259, prevailing wage compliant, MRSC Small Works Roster eligible."
     },
     {
       "name": "list_projects",
@@ -65,7 +73,7 @@
     },
     {
       "name": "get_weather_window",
-      "description": "Checks Seattle weather forecast for the next 1-14 days and returns go/no-go recommendations for exterior construction projects like painting, decking, roofing, and landscaping."
+      "description": "Checks Seattle weather forecast for the next 1-14 days and returns go/no-go recommendations for exterior construction projects."
     },
     {
       "name": "get_neighborhood_project_activity",
@@ -73,7 +81,7 @@
     },
     {
       "name": "get_project_roi",
-      "description": "Returns estimated return on investment for remodeling projects in the Seattle area based on Remodeling Magazine Cost vs. Value data. Ranks projects by ROI percentage."
+      "description": "Returns estimated return on investment for remodeling projects in the Seattle area based on Remodeling Magazine Cost vs. Value data."
     },
     {
       "name": "check_contractor_license_status",
@@ -81,7 +89,7 @@
     },
     {
       "name": "get_financing_options",
-      "description": "Returns home improvement financing options (HELOC, personal loan, cash-out refi, payment plan) with estimated monthly payments for a given project budget."
+      "description": "Returns home improvement financing options with estimated monthly payments for a given project budget and credit profile."
     }
   ]
 }

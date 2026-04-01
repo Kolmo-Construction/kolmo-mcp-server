@@ -1,6 +1,6 @@
 # Kolmo Construction MCP Server
 
-A live [Model Context Protocol](https://modelcontextprotocol.io) server for Seattle-area home remodeling cost estimation. No authentication required.
+A live [Model Context Protocol](https://modelcontextprotocol.io) server for Kolmo Construction — Seattle residential & commercial contractor. No authentication required.
 
 **Endpoint:** `https://www.kolmo.io/mcp`
 **Transport:** Streamable HTTP
@@ -25,22 +25,32 @@ claude mcp add --transport http kolmo https://www.kolmo.io/mcp
 }
 ```
 
-## Tools
+## Tools (22)
 
 | Tool | Description |
 |------|-------------|
-| `get_business_info` | Company info: contact, hours, service area, license |
-| `list_services` | Residential remodeling services — supports keyword `search` and pagination |
-| `get_service` | Full details for a service by slug; suggests similar slugs if not found |
-| `list_commercial_services` | Commercial construction services (office, retail, industrial, hospitality) |
-| `list_projects` | Completed projects with before/after photos — supports keyword `search`, `category` filter, and pagination |
-| `get_project` | Full project details including images and testimonial; suggests similar slugs if not found |
-| `list_blog_posts` | Published blog posts — filterable by `tag` and `author`, with pagination |
+| `get_business_info` | Company info: contact, hours, service area, license, SCS certification |
+| `get_author_bio` | Biography, credentials, and recent articles for a Kolmo blog author |
+| `search_content` | Search across services, projects, and blog posts with a single keyword query |
+| `list_services` | Residential remodeling services — keyword `search` and pagination |
+| `get_service` | Full details for a service by slug |
+| `list_commercial_services` | Commercial & public works services (office, retail, industrial, hospitality, public). Public category covers government contracts — SCS #7259, prevailing wage compliant, MRSC Small Works Roster eligible |
+| `list_projects` | Completed projects with before/after photos — `search`, `category` filter, pagination |
+| `get_project` | Full project details including images and testimonial |
+| `list_blog_posts` | Published blog posts — filterable by `tag` and `author` |
 | `get_blog_post` | Full markdown content of a blog post by slug |
-| `submit_contact_request` | Submit a quote request on behalf of a user; supports `dryRun: true` to preview without submitting |
+| `submit_contact_request` | Submit a quote request; `dryRun: true` to preview without submitting |
 | `list_project_types` | All 8 supported calculator project types with required input fields |
 | `get_material_options` | Valid material IDs for flooring, paint, decking, etc. |
-| `get_estimate` | Calculate itemized cost estimate with labor, materials, and timeline |
+| `get_estimate` | Itemized cost estimate with labor, materials, and timeline |
+| `list_reviews` | Customer reviews from Google and on-site sources — filterable by rating |
+| `check_permit_requirements` | Permit requirements for construction projects in the Seattle area |
+| `get_material_catalog` | Full material catalog with pricing across all project types |
+| `get_weather_window` | Seattle weather suitability for exterior construction over the next 1–14 days |
+| `get_neighborhood_project_activity` | Completed Kolmo projects in a specific Seattle neighborhood |
+| `get_project_roi` | Estimated ROI for remodeling projects based on Cost vs. Value data |
+| `check_contractor_license_status` | Look up any WA contractor's license, bond, and insurance via L&I public data |
+| `get_financing_options` | Financing options with estimated monthly payments for a given budget |
 
 ## Supported Project Types
 
@@ -79,7 +89,7 @@ Seattle, Bellevue, Kirkland, Redmond, Sammamish, Issaquah, Renton, Kent, Federal
 
 ## About Kolmo Construction
 
-Licensed & bonded Seattle general contractor (WA License: KOLMOC*792KL). Founded 2010. Rating: 4.9★ / 127 reviews.
+Licensed & bonded Seattle general contractor (WA License: KOLMOC*792KL, SCS #7259). Founded 2010. Rating: 4.9★ / 127 reviews.
 
 - Website: [kolmo.io](https://www.kolmo.io)
 - Calculator: [kolmo.io/calculator](https://www.kolmo.io/calculator)
