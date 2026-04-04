@@ -25,7 +25,7 @@
     },
     {
       "name": "list_commercial_services",
-      "description": "List commercial construction services. Filter by category: office, retail, industrial, hospitality, public. The public category covers government contracts — SCS #7259, prevailing wage compliant, MRSC Small Works Roster eligible."
+      "description": "List commercial construction services. Filter by category: office, retail, industrial, hospitality, public. The public category covers government contracts — WA SEDBE #D700031098, SCS #7259, prevailing wage compliant, MRSC Small Works Roster eligible."
     },
     {
       "name": "list_projects",

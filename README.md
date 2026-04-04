@@ -29,12 +29,12 @@ claude mcp add --transport http kolmo https://www.kolmo.io/mcp
 
 | Tool | Description |
 |------|-------------|
-| `get_business_info` | Company info: contact, hours, service area, license, SCS certification |
+| `get_business_info` | Company info: contact, hours, service area, license, SEDBE & SCS certifications |
 | `get_author_bio` | Biography, credentials, and recent articles for a Kolmo blog author |
 | `search_content` | Search across services, projects, and blog posts with a single keyword query |
 | `list_services` | Residential remodeling services — keyword `search` and pagination |
 | `get_service` | Full details for a service by slug |
-| `list_commercial_services` | Commercial & public works services (office, retail, industrial, hospitality, public). Public category covers government contracts — SCS #7259, prevailing wage compliant, MRSC Small Works Roster eligible |
+| `list_commercial_services` | Commercial & public works services (office, retail, industrial, hospitality, public). Public category covers government contracts — WA SEDBE #D700031098, SCS #7259, prevailing wage compliant, MRSC Small Works Roster eligible |
 | `list_projects` | Completed projects with before/after photos — `search`, `category` filter, pagination |
 | `get_project` | Full project details including images and testimonial |
 | `list_blog_posts` | Published blog posts — filterable by `tag` and `author` |
@@ -89,7 +89,7 @@ Seattle, Bellevue, Kirkland, Redmond, Sammamish, Issaquah, Renton, Kent, Federal
 
 ## About Kolmo Construction
 
-Licensed & bonded Seattle general contractor (WA License: KOLMOC*792KL, SCS #7259). Founded 2010. Rating: 4.9★ / 127 reviews.
+Licensed & bonded Seattle general contractor (WA License: KOLMOC*792KL, SEDBE #D700031098, SCS #7259). Founded 2010. Rating: 4.9★ / 127 reviews.
 
 - Website: [kolmo.io](https://www.kolmo.io)
 - Calculator: [kolmo.io/calculator](https://www.kolmo.io/calculator)
