@@ -89,7 +89,7 @@ Seattle, Bellevue, Kirkland, Redmond, Sammamish, Issaquah, Renton, Kent, Federal
 
 ## About Kolmo Construction
 
-Licensed & bonded Seattle general contractor (WA License: KOLMOC*792KL, SEDBE #D700031098, SCS #7259). Founded 2010. Rating: 4.9★ / 127 reviews.
+Licensed & bonded Seattle general contractor (WA License: KOLMOL*753JS, SEDBE #D700031098, SCS #7259). Founded 2010. Rating: 4.9★ / 127 reviews.
 
 - Website: [kolmo.io](https://www.kolmo.io)
 - Calculator: [kolmo.io/calculator](https://www.kolmo.io/calculator)
