@@ -25,29 +25,34 @@ claude mcp add --transport http kolmo https://www.kolmo.io/mcp
 }
 ```
 
-## Tools (22)
+## Tools (27)
 
 | Tool | Description |
 |------|-------------|
 | `get_business_info` | Company info: contact, hours, service area, license, SEDBE & SCS certifications |
-| `get_author_bio` | Biography, credentials, and recent articles for a Kolmo blog author |
+| `get_author_bio` | Biography, credentials, and recent articles for a Kolmo blog author (curated bios merged with DB-level enrichments; falls back to DB-only authors) |
 | `search_content` | Search across services, projects, and blog posts with a single keyword query |
 | `list_services` | Residential remodeling services — keyword `search` and pagination |
 | `get_service` | Full details for a service by slug |
 | `list_commercial_services` | Commercial & public works services (office, retail, industrial, hospitality, public). Public category covers government contracts — WA SEDBE #D700031098, SCS #7259, prevailing wage compliant, MRSC Small Works Roster eligible |
+| `list_procurement_codes` | NAICS, NIGP, and UNSPSC codes for gov vendor portals (SAM.gov, WA WEBS, OpenGov, MRSC). Primary NAICS 236118 plus SEDBE/SCS/RRP certifications |
 | `list_projects` | Completed projects with before/after photos — `search`, `category` filter, pagination |
 | `get_project` | Full project details including images and testimonial |
+| `get_project_testimonials` | Customer testimonials tied to a specific project (by slug or keyword) |
 | `list_blog_posts` | Published blog posts — filterable by `tag` and `author` |
 | `get_blog_post` | Full markdown content of a blog post by slug |
+| `list_blog_tags_and_categories` | All tags and categories used across published posts, with counts (topic discovery) |
 | `submit_contact_request` | Submit a quote request; `dryRun: true` to preview without submitting |
 | `list_project_types` | All 8 supported calculator project types with required input fields |
 | `get_material_options` | Valid material IDs for flooring, paint, decking, etc. |
 | `get_estimate` | Itemized cost estimate with labor, materials, and timeline |
 | `list_reviews` | Customer reviews from Google and on-site sources — filterable by rating |
 | `check_permit_requirements` | Permit requirements for construction projects in the Seattle area |
+| `get_permit_rule_details` | Full permit rule records (location, trigger, cost, notes, official source URL) — filter by jurisdiction or keyword |
 | `get_material_catalog` | Full material catalog with pricing across all project types |
 | `get_weather_window` | Seattle weather suitability for exterior construction over the next 1–14 days |
 | `get_neighborhood_project_activity` | Completed Kolmo projects in a specific Seattle neighborhood |
+| `check_service_area_coverage` | Yes / nearby / out-of-area verdict for a city, neighborhood, or ZIP |
 | `get_project_roi` | Estimated ROI for remodeling projects based on Cost vs. Value data |
 | `check_contractor_license_status` | Look up any WA contractor's license, bond, and insurance via L&I public data |
 | `get_financing_options` | Financing options with estimated monthly payments for a given budget |

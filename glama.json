@@ -28,6 +28,10 @@
       "description": "List commercial construction services. Filter by category: office, retail, industrial, hospitality, public. The public category covers government contracts — WA SEDBE #D700031098, SCS #7259, prevailing wage compliant, MRSC Small Works Roster eligible."
     },
     {
+      "name": "list_procurement_codes",
+      "description": "Returns Kolmo's vendor procurement codes (NAICS, NIGP, UNSPSC) for SAM.gov, WA WEBS, OpenGov, MRSC, King County, and City of Seattle. Primary NAICS 236118 (Residential Remodelers). Includes SEDBE/SCS/RRP certs and MRSC/prevailing-wage eligibility."
+    },
+    {
       "name": "list_projects",
       "description": "Lists completed construction projects with photos and descriptions. Supports keyword search, category filter, and pagination."
     },
@@ -36,12 +40,20 @@
       "description": "Returns details for a specific project by slug."
     },
     {
+      "name": "get_project_testimonials",
+      "description": "Returns customer testimonials tied to a specific project (by slug or keyword) with rating, name, and quote text. Use for project-specific social proof; use list_reviews for all reviews."
+    },
+    {
       "name": "list_blog_posts",
       "description": "Lists published blog posts about Seattle home remodeling. Filterable by tag and author."
     },
     {
       "name": "get_blog_post",
       "description": "Returns the full markdown content of a specific blog post by slug."
+    },
+    {
+      "name": "list_blog_tags_and_categories",
+      "description": "Enumerates every tag and category across Kolmo's published blog posts with post counts. Use to discover topic coverage before filtering list_blog_posts."
     },
     {
       "name": "submit_contact_request",
@@ -68,6 +80,10 @@
       "description": "Checks whether a construction project in the Seattle area requires a permit, estimated permit cost, and official source links."
     },
     {
+      "name": "get_permit_rule_details",
+      "description": "Full permit rule details: every rule row with location criteria, trigger, permit cost, notes (timeline/bond/inspection), and official source URL. Use for detailed questions or enumerating rules for a jurisdiction."
+    },
+    {
       "name": "get_material_catalog",
       "description": "Browses the full material catalog with pricing — flooring, paint, decking, siding, windows, fencing, and landscaping materials."
     },
@@ -78,6 +94,10 @@
     {
       "name": "get_neighborhood_project_activity",
       "description": "Returns completed projects by Kolmo Construction in a specific Seattle neighborhood — hyperlocal social proof with project counts, categories, and examples."
+    },
+    {
+      "name": "check_service_area_coverage",
+      "description": "Checks whether Kolmo services a given city, neighborhood, or ZIP (yes/nearby/out-of-area verdict with matched city, nearby project count, and full service-area list)."
     },
     {
       "name": "get_project_roi",
