@@ -25,7 +25,7 @@ claude mcp add --transport http kolmo https://www.kolmo.io/mcp
 }
 ```
 
-## Tools (27)
+## Tools (35)
 
 | Tool | Description |
 |------|-------------|
@@ -49,6 +49,14 @@ claude mcp add --transport http kolmo https://www.kolmo.io/mcp
 | `list_reviews` | Customer reviews from Google and on-site sources — filterable by rating |
 | `check_permit_requirements` | Permit requirements for construction projects in the Seattle area |
 | `get_permit_rule_details` | Full permit rule records (location, trigger, cost, notes, official source URL) — filter by jurisdiction or keyword |
+| `match_contractor_to_permit` | Map a permit/project type to required contractor specialties + license verification |
+| `estimate_permit_fee` | Numeric permit-fee breakdown for a jurisdiction + project type + valuation (UBC Table 1-A bracket schedule + plan-review/tech/state surcharges) |
+| `list_permit_jurisdictions` | All jurisdictions in the catalog (King/Pierce/Snohomish) with portal URLs, contacts, fee-schedule URLs, and code-cycle metadata |
+| `lookup_parcel_by_address` | Address → parcel: zoning, setbacks, overlays (shoreline / ECA / flood / historic), lot area, jurisdiction routing, prior permits — every fact cited to the city/county source |
+| `parse_project_description` | Natural-language project description → structured projectType + areaSqft + heightClass + position + materials with confidence + clarifying question (Gemini 2.5 Pro) |
+| `answer_permit_question` | Grounded permit Q&A for an address — cited answer using authoritative rules + neighbor activity + city municipal code; never fabricates fees or thresholds |
+| `get_neighbor_permit_activity` | Aggregate permit activity within ~1500 ft of a parcel over 24 months (anonymized — no addresses); Seattle live, others "coming soon" |
+| `get_permit_data_freshness` | Per-jurisdiction last-verified dates + weekly source-snapshot pipeline results (HTTP status, change-detection vs prior fetch) |
 | `get_material_catalog` | Full material catalog with pricing across all project types |
 | `get_weather_window` | Seattle weather suitability for exterior construction over the next 1–14 days |
 | `get_neighborhood_project_activity` | Completed Kolmo projects in a specific Seattle neighborhood |

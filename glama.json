@@ -110,6 +110,38 @@
     {
       "name": "get_financing_options",
       "description": "Returns home improvement financing options with estimated monthly payments for a given project budget and credit profile."
+    },
+    {
+      "name": "match_contractor_to_permit",
+      "description": "Given a permit / project type, returns the matching Kolmo contractor specialties + license verification context. Use after check_permit_requirements when an agent needs to surface 'who would do this work'."
+    },
+    {
+      "name": "estimate_permit_fee",
+      "description": "Numeric permit-fee estimate for a King/Pierce/Snohomish jurisdiction + project type + valuation. Walks UBC Table 1-A bracket schedules and adds plan-review %, tech surcharge, and WA state surcharge. Falls back to qualitative feeNotes when the city only publishes fees as PDFs."
+    },
+    {
+      "name": "list_permit_jurisdictions",
+      "description": "Lists every jurisdiction in Kolmo's permit catalog (King, Pierce, Snohomish counties) with portal URLs, contact info, fee-schedule URLs, and code-cycle metadata. Use to discover supported cities."
+    },
+    {
+      "name": "lookup_parcel_by_address",
+      "description": "Address-first parcel lookup powering the /permits experience. Geocodes a Seattle-area address, resolves the parcel from the county GIS, and returns zoning, setbacks, overlays (shoreline / ECA / flood / historic), lot area, jurisdiction routing, and prior-permit history. Every fact is cited to the city/county source."
+    },
+    {
+      "name": "parse_project_description",
+      "description": "Parses a homeowner's natural-language project description into structured permit-relevant fields (projectType, areaSqft, heightClass, attached, position, materials) with a confidence score and clarifying question on ambiguity. Backed by Gemini 2.5 Pro."
+    },
+    {
+      "name": "answer_permit_question",
+      "description": "Grounded permit Q&A for a Seattle-area address. Looks up the parcel, pulls authoritative jurisdiction rules + neighbor activity + city municipal code, and returns a cited answer. Never fabricates fees or thresholds."
+    },
+    {
+      "name": "get_neighbor_permit_activity",
+      "description": "Aggregate permit activity within ~1500 ft of a parcel over the last 24 months. Returns total count, breakdown by category, and recent example permits (anonymized — no addresses). Sourced from city open-data portals."
+    },
+    {
+      "name": "get_permit_data_freshness",
+      "description": "Source-freshness telemetry for the permit catalog. Returns per-jurisdiction last-verified dates plus latest results from the weekly source-of-truth snapshot pipeline (HTTP status, change-detection vs prior fetch)."
     }
   ]
 }
