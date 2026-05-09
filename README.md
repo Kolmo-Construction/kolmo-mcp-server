@@ -100,10 +100,24 @@ Returns: total cost, material cost, labor cost, time estimate (days), itemized l
 
 Seattle, Bellevue, Kirkland, Redmond, Sammamish, Issaquah, Renton, Kent, Federal Way, Mercer Island — King County, WA.
 
+## Related Kolmo surfaces
+
+If you want the same data via a different transport:
+
+| Surface | URL |
+|---|---|
+| Public REST API | [`/api/public`](https://www.kolmo.io/api/public) · [OpenAPI 3.0](https://www.kolmo.io/api/public/openapi.json) |
+| llms.txt | [`/llms.txt`](https://www.kolmo.io/llms.txt) · [extended](https://www.kolmo.io/llms-full.txt) |
+| A2A agent (Google A2A protocol) | [`/a2a`](https://www.kolmo.io/a2a) · [agent card](https://www.kolmo.io/.well-known/agent.json) |
+| AI plugin manifest | [`/.well-known/ai-plugin.json`](https://www.kolmo.io/.well-known/ai-plugin.json) |
+| MCP discovery | [`/.well-known/mcp.json`](https://www.kolmo.io/.well-known/mcp.json) |
+
 ## About Kolmo Construction
 
-Licensed & bonded Seattle general contractor (WA License: KOLMOL*753JS, SEDBE #D700031098, SCS #7259). Kolmo LLC, established 2025. Rating: 5.0★ on Google.
+Licensed & bonded Seattle general contractor (WA License `KOLMOL*753JS`, SEDBE `D700031098`, SCS `7259`, SAM.gov UEI `N43JNCNZCK89`, CAGE `18VZ2`). Kolmo LLC, established 2025. Rating: 5.0★ on Google.
 
-- Website: [kolmo.io](https://www.kolmo.io)
-- Calculator: [kolmo.io/calculator](https://www.kolmo.io/calculator)
+- Website: [www.kolmo.io](https://www.kolmo.io)
+- Calculator: [www.kolmo.io/calculator](https://www.kolmo.io/calculator)
+- Permits: [www.kolmo.io/permits](https://www.kolmo.io/permits)
 - Phone: (206) 410-5100
+- Email: projects@kolmo.io
