@@ -1,6 +1,8 @@
 {
   "$schema": "https://glama.ai/mcp/schemas/server.json",
-  "maintainers": ["Kolmo-Construction"],
+  "maintainers": [
+    "Kolmo-Construction"
+  ],
   "license": "MIT",
   "tools": [
     {
@@ -142,6 +144,192 @@
     {
       "name": "get_permit_data_freshness",
       "description": "Source-freshness telemetry for the permit catalog. Returns per-jurisdiction last-verified dates plus latest results from the weekly source-of-truth snapshot pipeline (HTTP status, change-detection vs prior fetch)."
+    },
+    {
+      "name": "generate_permit_packet",
+      "description": "Generate a Kolmo-branded permit application packet PDF (5 pages: cover, parcel snapshot, permit rule citation, submittal checklist, owner+contractor signature page). Returns a 1-hour signed URL to the PDF in R2 storage. Use after lookup_parcel_by_address + check_permit_requirements when the homeowner is ready to submit.",
+      "inputSchema": {
+        "type": "object",
+        "required": [
+          "address",
+          "projectType",
+          "description",
+          "valuationUsd"
+        ],
+        "properties": {
+          "address": {
+            "type": "string",
+            "minLength": 3,
+            "description": "Property address in King/Pierce/Snohomish County, WA"
+          },
+          "projectType": {
+            "type": "string",
+            "enum": [
+              "kitchen",
+              "bathroom",
+              "basement",
+              "deck",
+              "fence",
+              "siding",
+              "windows",
+              "flooring",
+              "adu",
+              "roofing",
+              "hvac",
+              "electrical",
+              "plumbing",
+              "addition"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 2000,
+            "description": "Detailed scope of work narrative"
+          },
+          "valuationUsd": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5000000
+          },
+          "areaSqft": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "ownerName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ownerEmail": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "email"
+          }
+        }
+      }
+    },
+    {
+      "name": "generate_site_plan",
+      "description": "Generate a Kolmo-branded site plan PDF (A1.1, 11x17 tabloid landscape). Renders parcel polygon, existing + proposed structures, all zoning setbacks dimensioned, north arrow, scale bar, and overlay buffers (shoreline, ECA). Returns a 1-hour signed URL. SCHEMATIC output — replace with surveyed polygon before real submittal.",
+      "inputSchema": {
+        "type": "object",
+        "required": [
+          "address",
+          "projectType",
+          "proposed"
+        ],
+        "properties": {
+          "address": {
+            "type": "string",
+            "minLength": 3
+          },
+          "projectType": {
+            "type": "string"
+          },
+          "proposed": {
+            "type": "object",
+            "required": [
+              "widthFt",
+              "heightFt",
+              "xFt",
+              "yFt",
+              "label"
+            ],
+            "properties": {
+              "widthFt": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "heightFt": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "xFt": {
+                "type": "number"
+              },
+              "yFt": {
+                "type": "number"
+              },
+              "label": {
+                "type": "string"
+              },
+              "sublabel": {
+                "type": "string"
+              }
+            }
+          },
+          "existing": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "widthFt",
+                "heightFt",
+                "xFt",
+                "yFt",
+                "label"
+              ],
+              "properties": {
+                "widthFt": {
+                  "type": "number"
+                },
+                "heightFt": {
+                  "type": "number"
+                },
+                "xFt": {
+                  "type": "number"
+                },
+                "yFt": {
+                  "type": "number"
+                },
+                "label": {
+                  "type": "string"
+                },
+                "sublabel": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "generate_siding_plan_set",
+      "description": "Generate a Kolmo-branded siding plan-set PDF (tabloid: cover + site plan + 4 elevations + wall section + WSEC sheet) for residential re-siding scopes. Returns a 1-hour signed URL. Use for re-side scopes only — new construction / ADU should use generate_site_plan plus a stamped architect set.",
+      "inputSchema": {
+        "type": "object",
+        "required": [
+          "address",
+          "structureDescription",
+          "newSidingType"
+        ],
+        "properties": {
+          "address": {
+            "type": "string",
+            "minLength": 3
+          },
+          "structureDescription": {
+            "type": "string",
+            "minLength": 10
+          },
+          "newSidingType": {
+            "type": "string"
+          }
+        }
+      }
     }
   ]
 }
