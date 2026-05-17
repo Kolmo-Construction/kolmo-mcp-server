@@ -122,6 +122,10 @@
       "description": "Numeric permit-fee estimate for a King/Pierce/Snohomish jurisdiction + project type + valuation. Walks UBC Table 1-A bracket schedules and adds plan-review %, tech surcharge, and WA state surcharge. Falls back to qualitative feeNotes when the city only publishes fees as PDFs."
     },
     {
+      "name": "resolve_permit_submittals",
+      "description": "Structured submittal-item set for a parcel + scope via the unified permit-engine pipeline. Returns per-item triggers, source citations, filler actor, and gap paths. Seattle is full SDCI fidelity; other 9 verified cities are wa-baseline-stub until Phase 5/6 backfills."
+    },
+    {
       "name": "list_permit_jurisdictions",
       "description": "Lists every jurisdiction in Kolmo's permit catalog (King, Pierce, Snohomish counties) with portal URLs, contact info, fee-schedule URLs, and code-cycle metadata. Use to discover supported cities."
     },

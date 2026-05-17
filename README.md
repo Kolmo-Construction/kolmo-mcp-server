@@ -25,7 +25,7 @@ claude mcp add --transport http kolmo https://www.kolmo.io/mcp
 }
 ```
 
-## Tools (35)
+## Tools (36)
 
 | Tool | Description |
 |------|-------------|
@@ -51,6 +51,7 @@ claude mcp add --transport http kolmo https://www.kolmo.io/mcp
 | `get_permit_rule_details` | Full permit rule records (location, trigger, cost, notes, official source URL) — filter by jurisdiction or keyword |
 | `match_contractor_to_permit` | Map a permit/project type to required contractor specialties + license verification |
 | `estimate_permit_fee` | Numeric permit-fee breakdown for a jurisdiction + project type + valuation (UBC Table 1-A bracket schedule + plan-review/tech/state surcharges) |
+| `resolve_permit_submittals` | Structured submittal-item set for a parcel + scope via the unified permit-engine pipeline (per-item triggers, source citations, filler actor, gap paths). Seattle is full SDCI fidelity; 9 other verified cities are wa-baseline-stub |
 | `list_permit_jurisdictions` | All jurisdictions in the catalog (King/Pierce/Snohomish) with portal URLs, contacts, fee-schedule URLs, and code-cycle metadata |
 | `lookup_parcel_by_address` | Address → parcel: zoning, setbacks, overlays (shoreline / ECA / flood / historic), lot area, jurisdiction routing, prior permits — every fact cited to the city/county source |
 | `parse_project_description` | Natural-language project description → structured projectType + areaSqft + heightClass + position + materials with confidence + clarifying question (Gemini 2.5 Pro) |
