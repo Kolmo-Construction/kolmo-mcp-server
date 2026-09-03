@@ -5,6 +5,7 @@ A live [Model Context Protocol](https://modelcontextprotocol.io) server for Kolm
 **Endpoint:** `https://www.kolmo.io/mcp`
 **Transport:** Streamable HTTP
 **Discovery:** `https://www.kolmo.io/.well-known/mcp.json`
+**Server version:** `1.4.0`
 
 ## Connect
 
@@ -25,50 +26,67 @@ claude mcp add --transport http kolmo https://www.kolmo.io/mcp
 }
 ```
 
+<!-- generated:tools:start -->
 ## Tools (36)
 
 | Tool | Description |
 |------|-------------|
-| `get_business_info` | Company info: contact, hours, service area, license, SEDBE & SCS certifications |
-| `get_author_bio` | Biography, credentials, and recent articles for a Kolmo blog author (curated bios merged with DB-level enrichments; falls back to DB-only authors) |
-| `search_content` | Search across services, projects, and blog posts with a single keyword query |
-| `list_services` | Residential remodeling services — keyword `search` and pagination |
-| `get_service` | Full details for a service by slug |
-| `list_commercial_services` | Commercial & public works services (office, retail, industrial, hospitality, public). Public category covers government contracts — WA SEDBE #D700031098, SCS #7259, prevailing wage compliant, MRSC Small Works Roster eligible |
-| `list_procurement_codes` | NAICS, NIGP, and UNSPSC codes for gov vendor portals (SAM.gov, WA WEBS, OpenGov, MRSC). Primary NAICS 236118 plus SEDBE/SCS/RRP certifications |
-| `list_projects` | Completed projects with before/after photos — `search`, `category` filter, pagination |
-| `get_project` | Full project details including images and testimonial |
-| `get_project_testimonials` | Customer testimonials tied to a specific project (by slug or keyword) |
-| `list_blog_posts` | Published blog posts — filterable by `tag` and `author` |
-| `get_blog_post` | Full markdown content of a blog post by slug |
-| `list_blog_tags_and_categories` | All tags and categories used across published posts, with counts (topic discovery) |
-| `submit_contact_request` | Submit a quote request; `dryRun: true` to preview without submitting |
-| `list_project_types` | All 8 supported calculator project types with required input fields |
-| `get_material_options` | Valid material IDs for flooring, paint, decking, etc. |
-| `get_estimate` | Itemized cost estimate with labor, materials, and timeline |
-| `list_reviews` | Customer reviews from Google and on-site sources — filterable by rating |
-| `check_permit_requirements` | Permit requirements for construction projects in the Seattle area |
-| `get_permit_rule_details` | Full permit rule records (location, trigger, cost, notes, official source URL) — filter by jurisdiction or keyword |
-| `match_contractor_to_permit` | Map a permit/project type to required contractor specialties + license verification |
-| `estimate_permit_fee` | Numeric permit-fee breakdown for a jurisdiction + project type + valuation (UBC Table 1-A bracket schedule + plan-review/tech/state surcharges) |
-| `resolve_permit_submittals` | Structured submittal-item set for a parcel + scope via the unified permit-engine pipeline (per-item triggers, source citations, filler actor, gap paths). Seattle is full SDCI fidelity; 9 other verified cities are wa-baseline-stub |
-| `list_permit_jurisdictions` | All jurisdictions in the catalog (King/Pierce/Snohomish) with portal URLs, contacts, fee-schedule URLs, and code-cycle metadata |
-| `lookup_parcel_by_address` | Address → parcel: zoning, setbacks, overlays (shoreline / ECA / flood / historic), lot area, jurisdiction routing, prior permits — every fact cited to the city/county source |
-| `parse_project_description` | Natural-language project description → structured projectType + areaSqft + heightClass + position + materials with confidence + clarifying question (Gemini 2.5 Pro) |
-| `answer_permit_question` | Grounded permit Q&A for an address — cited answer using authoritative rules + neighbor activity + city municipal code; never fabricates fees or thresholds |
-| `get_neighbor_permit_activity` | Aggregate permit activity within ~1500 ft of a parcel over 24 months (anonymized — no addresses); Seattle live, others "coming soon" |
-| `get_permit_data_freshness` | Per-jurisdiction last-verified dates + weekly source-snapshot pipeline results (HTTP status, change-detection vs prior fetch) |
-| `get_material_catalog` | Full material catalog with pricing across all project types |
-| `get_weather_window` | Seattle weather suitability for exterior construction over the next 1–14 days |
-| `get_neighborhood_project_activity` | Completed Kolmo projects in a specific Seattle neighborhood |
-| `check_service_area_coverage` | Yes / nearby / out-of-area verdict for a city, neighborhood, or ZIP |
-| `get_project_roi` | Estimated ROI for remodeling projects based on Cost vs. Value data |
-| `check_contractor_license_status` | Look up any WA contractor's license, bond, and insurance via L&I public data |
-| `get_financing_options` | Financing options with estimated monthly payments for a given budget |
+| `get_business_info` | Get Kolmo Construction company information: contact details, hours, service area, specializations, and tools. |
+| `list_services` | List all residential remodeling services with slugs, descriptions, and page URLs. |
+| `get_service` | Get full details for a specific residential service by its slug. |
+| `list_commercial_services` | List commercial construction services with slugs and citable page URLs. |
+| `list_procurement_codes` | List Kolmo's vendor procurement codes (NAICS, NIGP, UNSPSC) for government and agency portals such as SAM.gov, WA WEBS, OpenGov, MRSC, King County, and City of Seattle. |
+| `list_projects` | List completed remodeling projects with before/after photos and locations. |
+| `get_project` | Get full details for a specific project by its slug, including before/after images and testimonial. |
+| `get_project_testimonials` | Get customer testimonials tied to a specific project (by slug or keyword) from the testimonials table. |
+| `list_blog_posts` | List published blog posts about home remodeling, renovation costs, and construction tips. |
+| `get_blog_post` | Get the full markdown content of a blog post by its slug. |
+| `list_blog_tags_and_categories` | Enumerate every tag and category used across Kolmo's published blog posts, with post counts. |
+| `submit_contact_request` | Submit a contact or quote request to Kolmo Construction on behalf of a user. |
+| `list_project_types` | List all 11 supported calculator project types with their required input fields and descriptions. |
+| `get_material_options` | Get available material choices for a project type — flooring types, paint grades, decking materials, kitchen/bath scope tiers, ADA modifications, etc. |
+| `get_estimate` | Calculate a Seattle-area cost estimate. |
+| `list_reviews` | List customer reviews and testimonials for Kolmo Construction. |
+| `check_permit_requirements` | Check whether a residential construction project in King/Pierce/Snohomish counties requires a permit. |
+| `get_permit_rule_details` | Enumerate permit rules with full detail — timeline, fee model, inspection sequence, submittals, required contractor specialties. |
+| `match_contractor_to_permit` | Cross-reference a WA contractor's L&I license specialty against a permit's required specialties. |
+| `estimate_permit_fee` | Estimate the permit fee for a residential project based on jurisdiction, project type, and project valuation. |
+| `resolve_permit_submittals` | Resolve the structured submittal-item set for a specific parcel + permit scope, via the unified permit-engine pipeline (documentation/permit-engine-unification-plan.md). |
+| `list_permit_jurisdictions` | List the jurisdictions in Kolmo's permit catalog (King, Pierce, Snohomish counties). |
+| `lookup_parcel_by_address` | Address-first parcel lookup powering the /permits experience. |
+| `parse_project_description` | Parse a homeowner's natural-language project description into structured permit-relevant fields: projectType (kitchen\|bathroom\|deck\|adu\|fence\|...), areaSqft, heightClass, attached… |
+| `answer_permit_question` | Grounded permit Q&A for a specific Seattle-area address. |
+| `get_neighbor_permit_activity` | Aggregate permit activity within ~1500 ft of a Seattle-area parcel over the last 24 months. |
+| `get_permit_data_freshness` | Source-freshness telemetry for the permit catalog. |
+| `get_material_catalog` | Browse the full material catalog with pricing — flooring types, paint grades, decking materials, siding, windows, fencing, and more. |
+| `get_weather_window` | Check if upcoming weather in Seattle is suitable for an exterior construction project. |
+| `get_neighborhood_project_activity` | See what remodeling projects Kolmo Construction has completed in a specific Seattle neighborhood or city. |
+| `check_service_area_coverage` | Check whether Kolmo services a given city, neighborhood, or ZIP in the Seattle / King County area. |
+| `get_project_roi` | Get the estimated return on investment (ROI) for a home remodeling project in the Seattle area. |
+| `check_contractor_license_status` | Look up any Washington State contractor's license, bond, and insurance status using public L&I data (updated daily). |
+| `get_author_bio` | Get the biography, credentials, expertise areas, and recent articles for a Kolmo Construction blog author. |
+| `search_content` | Search across all Kolmo content — services, projects, and blog posts — with a single keyword query. |
+| `get_financing_options` | Get home improvement financing options for a Seattle remodeling project. |
+<!-- generated:tools:end -->
+
+<!-- generated:prompts:start -->
+## Workflow prompts (6)
+
+Guided multi-step workflows, served via `prompts/list` / `prompts/get`:
+
+- `estimate_project` (`project_type`, `rough_size`?, `budget_range`?) — Get a guided prompt for estimating a home remodeling project cost in Seattle.
+- `check_permit_needs` (`project_type`, `location`?) — Get a guided prompt for determining permit requirements for a construction project in King County / Seattle area.
+- `plan_renovation` (`project_type`, `budget`?, `timeline`?) — Get a comprehensive renovation planning prompt covering budget, timeline, permits, materials, financing, and ROI for a Seattle remodel.
+- `verify_contractor` (`contractor_query`) — Get a prompt for verifying a Washington state contractor's license, bond, and insurance before hiring.
+- `compare_financing` (`budget`, `credit_profile`?) — Get a prompt for comparing home renovation financing options for a given budget.
+- `explore_neighborhood` (`neighborhood`, `project_type`?) — Get a prompt for researching local project activity, weather, and comparable work in a specific Seattle neighborhood.
+<!-- generated:prompts:end -->
 
 ## Supported Project Types
 
-`interior-painting` · `exterior-painting` · `flooring` · `deck` · `windows` · `siding` · `fence` · `landscaping`
+<!-- generated:project-types:start -->
+`interior-painting` · `deck` · `exterior-painting` · `flooring` · `windows` · `siding` · `fence` · `landscaping` · `kitchen` · `bathroom` · `ada`
+<!-- generated:project-types:end -->
 
 ## Example Usage
 
