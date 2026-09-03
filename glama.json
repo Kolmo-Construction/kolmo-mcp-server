@@ -87,7 +87,7 @@
     },
     {
       "name": "resolve_permit_submittals",
-      "description": "Resolve the structured submittal-item set for a specific parcel + permit scope, via the unified permit-engine pipeline (documentation/permit-engine-unification-plan.md)."
+      "description": "Resolve the structured submittal-item set for a specific parcel + permit scope, via the unified permit-engine pipeline."
     },
     {
       "name": "list_permit_jurisdictions",

@@ -5,7 +5,7 @@ A live [Model Context Protocol](https://modelcontextprotocol.io) server for Kolm
 **Endpoint:** `https://www.kolmo.io/mcp`
 **Transport:** Streamable HTTP
 **Discovery:** `https://www.kolmo.io/.well-known/mcp.json`
-**Server version:** `1.4.0`
+**Server version:** `1.5.0`
 
 ## Connect
 
@@ -51,7 +51,7 @@ claude mcp add --transport http kolmo https://www.kolmo.io/mcp
 | `get_permit_rule_details` | Enumerate permit rules with full detail — timeline, fee model, inspection sequence, submittals, required contractor specialties. |
 | `match_contractor_to_permit` | Cross-reference a WA contractor's L&I license specialty against a permit's required specialties. |
 | `estimate_permit_fee` | Estimate the permit fee for a residential project based on jurisdiction, project type, and project valuation. |
-| `resolve_permit_submittals` | Resolve the structured submittal-item set for a specific parcel + permit scope, via the unified permit-engine pipeline (documentation/permit-engine-unification-plan.md). |
+| `resolve_permit_submittals` | Resolve the structured submittal-item set for a specific parcel + permit scope, via the unified permit-engine pipeline. |
 | `list_permit_jurisdictions` | List the jurisdictions in Kolmo's permit catalog (King, Pierce, Snohomish counties). |
 | `lookup_parcel_by_address` | Address-first parcel lookup powering the /permits experience. |
 | `parse_project_description` | Parse a homeowner's natural-language project description into structured permit-relevant fields: projectType (kitchen\|bathroom\|deck\|adu\|fence\|...), areaSqft, heightClass, attached… |
