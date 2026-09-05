@@ -36,15 +36,15 @@ claude mcp add --transport http kolmo https://www.kolmo.io/mcp
 | `get_service` | Get full details for a specific residential service by its slug. |
 | `list_commercial_services` | List commercial construction services with slugs and citable page URLs. |
 | `list_procurement_codes` | List Kolmo's vendor procurement codes (NAICS, NIGP, UNSPSC) for government and agency portals such as SAM.gov, WA WEBS, OpenGov, MRSC, King County, and City of Seattle. |
-| `list_projects` | List completed remodeling projects with before/after photos and locations. |
+| `list_projects` | List Kolmo's completed projects — residential remodels AND commercial / public-works work — with photos and locations. |
 | `get_project` | Get full details for a specific project by its slug, including before/after images and testimonial. |
 | `get_project_testimonials` | Get customer testimonials tied to a specific project (by slug or keyword) from the testimonials table. |
 | `list_blog_posts` | List published blog posts about home remodeling, renovation costs, and construction tips. |
 | `get_blog_post` | Get the full markdown content of a blog post by its slug. |
 | `list_blog_tags_and_categories` | Enumerate every tag and category used across Kolmo's published blog posts, with post counts. |
 | `submit_contact_request` | Submit a contact or quote request to Kolmo Construction on behalf of a user. |
-| `list_project_types` | List all 11 supported calculator project types with their required input fields and descriptions. |
-| `get_material_options` | Get available material choices for a project type — flooring types, paint grades, decking materials, kitchen/bath scope tiers, ADA modifications, etc. |
+| `list_project_types` | List all 13 supported calculator project types with their required input fields and descriptions. |
+| `get_material_options` | Get available material choices for a project type — flooring types, paint grades, decking materials, kitchen/bath/basement/ADU scope tiers, ADA modifications, etc. |
 | `get_estimate` | Calculate a Seattle-area cost estimate. |
 | `list_reviews` | List customer reviews and testimonials for Kolmo Construction. |
 | `check_permit_requirements` | Check whether a residential construction project in King/Pierce/Snohomish counties requires a permit. |
@@ -85,7 +85,7 @@ Guided multi-step workflows, served via `prompts/list` / `prompts/get`:
 ## Supported Project Types
 
 <!-- generated:project-types:start -->
-`interior-painting` · `deck` · `exterior-painting` · `flooring` · `windows` · `siding` · `fence` · `landscaping` · `kitchen` · `bathroom` · `ada`
+`interior-painting` · `exterior-painting` · `flooring` · `deck` · `windows` · `siding` · `fence` · `landscaping` · `kitchen` · `bathroom` · `basement` · `adu` · `ada`
 <!-- generated:project-types:end -->
 
 ## Example Usage
