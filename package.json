@@ -1,7 +1,7 @@
 {
   "name": "kolmo-mcp-server",
   "version": "1.4.0",
-  "description": "MCP server for Kolmo Construction \u2014 Seattle home remodeling cost estimator",
+  "description": "Remote MCP server by Kolmo Construction: WA permit rules for 80+ cities (cited), parcel zoning, L&I contractor license checks, Seattle cost estimates and ROI. No auth.",
   "type": "module",
   "keywords": [
     "mcp",
