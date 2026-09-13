@@ -20,7 +20,6 @@ import {
   CallToolRequestSchema,
   ListPromptsRequestSchema,
   GetPromptRequestSchema,
-  ListResourcesRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
 
 const MCP_URL = 'https://www.kolmo.io/mcp';
@@ -53,8 +52,10 @@ async function main() {
     return await upstream.getPrompt({ name: req.params.name, arguments: req.params.arguments ?? {} });
   });
 
-  // The live server declares no resources; answer the probe rather than error.
-  server.setRequestHandler(ListResourcesRequestSchema, async () => ({ resources: [] }));
+  // No resources handler: the live server declares no resources capability, and the
+  // SDK refuses a resources/list handler on a server that does not declare it
+  // ("Server does not support resources") — which is exactly how Glama's build test
+  // failed on 2026-09-13. A client that asks anyway gets a method-not-found reply.
 
   const transport = new StdioServerTransport();
   await server.connect(transport);
