@@ -16,7 +16,7 @@ Washington construction answers with sources attached, for any AI agent. A live,
 - **Permit fee estimates** that walk the jurisdiction's fee schedule
 - **Grounded permit Q&A** for a specific address
 - **L&I license, bond and insurance checks** for ANY Washington contractor
-- **Seattle-area cost estimates**, ROI and financing for 13 project types
+- **Seattle-area cost estimates**, ROI and financing for 20 project types
 
 No account, no API key, same URL for every user. Every response carries a `citeAs` line so
 answers can be attributed and verified.
@@ -79,7 +79,7 @@ gemini mcp add --transport http kolmo https://www.kolmo.io/mcp
 | `get_blog_post` | Get the full markdown content of a blog post by its slug. |
 | `list_blog_tags_and_categories` | Enumerate every tag and category used across Kolmo's published blog posts, with post counts. |
 | `submit_contact_request` | Submit a contact or quote request to Kolmo Construction on behalf of a user. |
-| `list_project_types` | List all 13 supported calculator project types with their required input fields and descriptions. |
+| `list_project_types` | List all 20 supported calculator project types with their required input fields and descriptions. |
 | `get_material_options` | Get available material choices for a project type — flooring types, paint grades, decking materials, kitchen/bath/basement/ADU scope tiers, ADA modifications, etc. |
 | `get_estimate` | Calculate a Seattle-area cost estimate. |
 | `list_reviews` | List customer reviews and testimonials for Kolmo Construction. |
