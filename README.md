@@ -81,7 +81,7 @@ gemini mcp add --transport http kolmo https://www.kolmo.io/mcp
 | `submit_contact_request` | Submit a contact or quote request to Kolmo Construction on behalf of a user. |
 | `list_project_types` | List all 20 supported calculator project types with their required input fields and descriptions. |
 | `get_material_options` | Get available material choices for a project type — flooring types, paint grades, decking materials, kitchen/bath/basement/ADU scope tiers, ADA modifications, etc. |
-| `get_estimate` | Calculate a Seattle-area cost estimate. |
+| `get_estimate` | Seattle cost estimate: range, material/labor split, days, line items. |
 | `list_reviews` | List customer reviews and testimonials for Kolmo Construction. |
 | `check_permit_requirements` | Check whether a residential construction project in King/Pierce/Snohomish counties requires a permit. |
 | `get_permit_rule_details` | Enumerate permit rules with full detail — timeline, fee model, inspection sequence, submittals, required contractor specialties. |
@@ -121,7 +121,7 @@ Guided multi-step workflows, served via `prompts/list` / `prompts/get`:
 ## Supported Project Types
 
 <!-- generated:project-types:start -->
-`interior-painting` · `exterior-painting` · `flooring` · `deck` · `windows` · `siding` · `fence` · `landscaping` · `kitchen` · `bathroom` · `basement` · `adu` · `ada`
+`interior-painting` · `exterior-painting` · `flooring` · `deck` · `windows` · `siding` · `fence` · `landscaping` · `kitchen` · `bathroom` · `basement` · `adu` · `ada` · `electrical` · `plumbing` · `garage-doors` · `doors` · `concrete` · `insulation` · `gutters`
 <!-- generated:project-types:end -->
 
 ## Cite it

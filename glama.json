@@ -55,7 +55,7 @@
     },
     {
       "name": "list_project_types",
-      "description": "List all 13 supported calculator project types with their required input fields and descriptions."
+      "description": "List all 20 supported calculator project types with their required input fields and descriptions."
     },
     {
       "name": "get_material_options",
@@ -63,7 +63,7 @@
     },
     {
       "name": "get_estimate",
-      "description": "Calculate a Seattle-area cost estimate."
+      "description": "Seattle cost estimate: range, material/labor split, days, line items."
     },
     {
       "name": "list_reviews",
