@@ -127,7 +127,7 @@
     },
     {
       "name": "check_service_area_coverage",
-      "description": "Check whether Kolmo services a given city, neighborhood, or ZIP in the Seattle / King County area."
+      "description": "Check whether Kolmo takes work in a given city, neighborhood, ZIP or address."
     },
     {
       "name": "get_project_roi",

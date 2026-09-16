@@ -97,7 +97,7 @@ gemini mcp add --transport http kolmo https://www.kolmo.io/mcp
 | `get_material_catalog` | Browse the full material catalog with pricing — flooring types, paint grades, decking materials, siding, windows, fencing, and more. |
 | `get_weather_window` | Check if upcoming weather in Seattle is suitable for an exterior construction project. |
 | `get_neighborhood_project_activity` | See what remodeling projects Kolmo Construction has completed in a specific Seattle neighborhood or city. |
-| `check_service_area_coverage` | Check whether Kolmo services a given city, neighborhood, or ZIP in the Seattle / King County area. |
+| `check_service_area_coverage` | Check whether Kolmo takes work in a given city, neighborhood, ZIP or address. |
 | `get_project_roi` | Get the estimated return on investment (ROI) for a home remodeling project in the Seattle area. |
 | `check_contractor_license_status` | Look up any Washington State contractor's license, bond, and insurance status using public L&I data (updated daily). |
 | `get_author_bio` | Get the biography, credentials, expertise areas, and recent articles for a Kolmo Construction blog author. |
