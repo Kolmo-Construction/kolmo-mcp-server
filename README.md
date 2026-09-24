@@ -41,6 +41,7 @@ gemini mcp add --transport http kolmo https://www.kolmo.io/mcp
 |--------|-----|
 | **Claude.ai / Claude Desktop** | Settings → Connectors → *Add custom connector* → name `Kolmo`, URL above, no auth |
 | **ChatGPT** | Settings → Connectors → Advanced → *Developer mode* → Create → name `Kolmo`, URL above, auth: none |
+| **Meta Muse** | Ask Muse: *Create a custom connector for Kolmo Construction — an MCP server at the URL above, streamable HTTP, no login or API key.* Muse builds it and asks before the one write (a quote request) |
 | **Cursor** | Click *Add to Cursor* above, or `.cursor/mcp.json`: `{"mcpServers":{"kolmo":{"url":"https://www.kolmo.io/mcp"}}}` |
 | **VS Code (Copilot)** | Click *Install in VS Code* above, or `.vscode/mcp.json`: `{"servers":{"kolmo":{"type":"http","url":"https://www.kolmo.io/mcp"}}}` |
 | **Windsurf** | `~/.codeium/windsurf/mcp_config.json`: `{"mcpServers":{"kolmo":{"serverUrl":"https://www.kolmo.io/mcp"}}}` |
