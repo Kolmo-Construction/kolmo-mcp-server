@@ -10,8 +10,9 @@ Washington construction answers with sources attached, for any AI agent. A live,
 [Model Context Protocol](https://modelcontextprotocol.io) server published by
 [Kolmo Construction](https://www.kolmo.io), a Washington-registered general contractor:
 
-- **Permit rules** for 80+ King, Pierce and Snohomish County jurisdictions, each cited to the
-  city source with a verification date and freshness telemetry
+- **Permit rules** for King, Pierce and Snohomish County jurisdictions, in two labeled layers:
+  each jurisdiction's own rule where Kolmo has read it, the Washington state baseline elsewhere.
+  Every rule is cited to the city or state source with a verification date and freshness telemetry
 - **Address-first parcel lookup** — zoning, setbacks and overlays from county GIS
 - **Permit fee estimates** that walk the jurisdiction's fee schedule
 - **Grounded permit Q&A** for a specific address
