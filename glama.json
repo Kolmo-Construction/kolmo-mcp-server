@@ -110,6 +110,14 @@
       "description": "Aggregate permit activity within ~1500 ft of a Seattle-area parcel over the last 24 months."
     },
     {
+      "name": "get_permit_timeline",
+      "description": "Measured days from application to issue (median and 80th percentile), City vs applicant days, and review cycles, from the city's issued-permit records."
+    },
+    {
+      "name": "get_common_plan_review_corrections",
+      "description": "Corrections Seattle plan reviewers most often send on ADU permits, from the City's public correction letters: share of permits per category and the code cited."
+    },
+    {
       "name": "get_permit_data_freshness",
       "description": "Source-freshness telemetry for the permit catalog."
     },

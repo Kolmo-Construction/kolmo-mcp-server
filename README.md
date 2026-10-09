@@ -65,7 +65,7 @@ gemini mcp add --transport http kolmo https://www.kolmo.io/mcp
 | Ready to hire | `submit_contact_request` (`dryRun: true` previews without sending) |
 
 <!-- generated:tools:start -->
-## Tools (40)
+## Tools (42)
 
 | Tool | Description |
 |------|-------------|
@@ -95,6 +95,8 @@ gemini mcp add --transport http kolmo https://www.kolmo.io/mcp
 | `parse_project_description` | Parse a homeowner's natural-language project description into structured permit-relevant fields: projectType (kitchen\|bathroom\|deck\|adu\|fence\|...), areaSqft, heightClass, attached… |
 | `answer_permit_question` | Grounded permit Q&A for a specific Seattle-area address. |
 | `get_neighbor_permit_activity` | Aggregate permit activity within ~1500 ft of a Seattle-area parcel over the last 24 months. |
+| `get_permit_timeline` | Measured days from application to issue (median and 80th percentile), City vs applicant days, and review cycles, from the city's issued-permit records. |
+| `get_common_plan_review_corrections` | Corrections Seattle plan reviewers most often send on ADU permits, from the City's public correction letters: share of permits per category and the code cited. |
 | `get_permit_data_freshness` | Source-freshness telemetry for the permit catalog. |
 | `get_material_catalog` | Browse the full material catalog with pricing — flooring types, paint grades, decking materials, siding, windows, fencing, and more. |
 | `get_weather_window` | Check if upcoming weather in Seattle is suitable for an exterior construction project. |
