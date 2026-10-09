@@ -148,6 +148,22 @@
     {
       "name": "get_financing_options",
       "description": "Get home improvement financing options for a Seattle remodeling project."
+    },
+    {
+      "name": "request_walkthrough",
+      "description": "Request an on-site walkthrough at 1-5 times the person proposes: 24 h to 60 days out, starting Mon-Fri 8 AM-4 PM or Sat 9 AM-12 PM Pacific."
+    },
+    {
+      "name": "get_my_quote",
+      "description": "Read the quote Kolmo sent the person: scope, line items, options, total, payment schedule, expiry and whether it can still be accepted."
+    },
+    {
+      "name": "respond_to_quote",
+      "description": "Answer a Kolmo quote for the person."
+    },
+    {
+      "name": "get_payment_link",
+      "description": "Invoices for an accepted Kolmo quote, with amount, status and the Stripe page where the person pays."
     }
   ]
 }
