@@ -20,7 +20,7 @@ about:
     jurisdictions (each jurisdiction's own rule where Kolmo has read it, the
     state baseline elsewhere; source-cited, freshness-tracked), address-first parcel zoning
     and setbacks, L&I license checks for any WA contractor, and Seattle-area cost
-    estimates, ROI and financing. 36 tools, 6 workflow prompts, no auth.
+    estimates, ROI and financing, walkthrough requests and quote acceptance. 40 tools, 6 workflow prompts, no auth.
   icon: https://www.kolmo.io/favicon.ico
 remote:
   transport_type: streamable-http
