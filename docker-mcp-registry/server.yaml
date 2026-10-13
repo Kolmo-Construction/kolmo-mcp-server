@@ -1,7 +1,11 @@
 # Docker MCP Catalog entry — submitted as a PR to github.com/docker/mcp-registry
 # (servers/kolmo-construction/server.yaml). Remote servers need no image; the
 # catalog proxies to the public endpoint. tools.json must be `[]` for remote
-# servers and readme.md is the public README. Prepared 2026-09-02, not yet sent.
+# servers and readme.md is the public README. Opened as docker/mcp-registry
+# PR #5081 on 2026-09-13 from Kolmo-Construction:add-kolmo-construction; that
+# branch still carries the pre-correction text until this file is pushed to it.
+# No tool count in the description: the live server's count moves with every
+# release (36 at PR time, 42 on 2026-10-13).
 name: kolmo-construction
 type: remote
 meta:
@@ -20,7 +24,8 @@ about:
     jurisdictions (each jurisdiction's own rule where Kolmo has read it, the
     state baseline elsewhere; source-cited, freshness-tracked), address-first parcel zoning
     and setbacks, L&I license checks for any WA contractor, and Seattle-area cost
-    estimates, ROI and financing, walkthrough requests and quote acceptance. 40 tools, 6 workflow prompts, no auth.
+    estimates, ROI and financing, walkthrough requests and quote acceptance.
+    Guided workflow prompts, no auth.
   icon: https://www.kolmo.io/favicon.ico
 remote:
   transport_type: streamable-http
