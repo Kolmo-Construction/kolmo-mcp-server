@@ -26,7 +26,7 @@ answers can be attributed and verified.
 **Transport:** Streamable HTTP (JSON-RPC 2.0), CORS open
 **Discovery:** `https://www.kolmo.io/.well-known/mcp.json`
 **Docs:** https://www.kolmo.io/developers
-**Server version:** `1.6.0`
+**Server version:** `1.7.0`
 
 ## Connect
 
@@ -65,7 +65,7 @@ gemini mcp add --transport http kolmo https://www.kolmo.io/mcp
 | Ready to hire | `submit_contact_request` (`dryRun: true` previews without sending) |
 
 <!-- generated:tools:start -->
-## Tools (42)
+## Tools (43)
 
 | Tool | Description |
 |------|-------------|
@@ -107,10 +107,11 @@ gemini mcp add --transport http kolmo https://www.kolmo.io/mcp
 | `get_author_bio` | Get the biography, credentials, expertise areas, and recent articles for a Kolmo Construction blog author. |
 | `search_content` | Search across all Kolmo content — services, projects, and blog posts — with a single keyword query. |
 | `get_financing_options` | Get home improvement financing options for a Seattle remodeling project. |
+| `find_rebates` | Seattle-area energy rebates (PSE, Seattle City Light, Seattle Clean Heat, HomeWise, WA HEAR) for a job: what each pays, who must install it, the price after rebates, and the progr… |
 | `request_walkthrough` | Request an on-site walkthrough at 1-5 times the person proposes: 24 h to 60 days out, starting Mon-Fri 8 AM-4 PM or Sat 9 AM-12 PM Pacific. |
 | `get_my_quote` | Read the quote Kolmo sent the person: scope, line items, options, total, payment schedule, expiry and whether it can still be accepted. |
 | `respond_to_quote` | Answer a Kolmo quote for the person. |
-| `get_payment_link` | Invoices for an accepted Kolmo quote, with amount, status and the Stripe page where the person pays. |
+| `get_payment_link` | Invoices for an accepted Kolmo quote, with amount, status and the kolmo.io quote page where the person pays them. |
 <!-- generated:tools:end -->
 
 <!-- generated:prompts:start -->

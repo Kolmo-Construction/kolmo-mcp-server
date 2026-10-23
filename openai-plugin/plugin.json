@@ -1,0 +1,113 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "kolmo-construction",
+  "version": "1.0.0",
+  "description": "Washington permit rules, parcel zoning, contractor license checks and Seattle-area remodel cost ranges from Kolmo Construction, a Seattle-area general contractor.",
+  "author": {
+    "name": "Kolmo Construction",
+    "email": "projects@kolmo.io",
+    "url": "https://www.kolmo.io"
+  },
+  "homepage": "https://www.kolmo.io/developers",
+  "repository": "https://github.com/Kolmo-Construction/kolmo-mcp-server",
+  "license": "MIT",
+  "keywords": [
+    "construction",
+    "permits",
+    "zoning",
+    "remodel",
+    "contractor",
+    "Washington",
+    "Seattle"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Kolmo Construction",
+        "shortDescription": "WA permits, zoning and costs",
+        "longDescription": "Answers to Washington home-building questions, with the source attached, from Kolmo Construction, a general contractor in the Seattle area (WA contractor license KOLMOL*753JS).\n\nWhat it does:\n- Permits: whether a project needs a permit in a King, Pierce or Snohomish County city, the rule that decides it, and a link to the city's own source with the date Kolmo last checked it. Also typical review times, the corrections reviewers usually send back, and a fee estimate worked from the city's fee schedule.\n- Property: zoning, setbacks and overlays for a street address, from county GIS data, and the permits filed nearby.\n- Contractor checks: license, bond and insurance status for any Washington contractor, read live from Washington L&I.\n- Costs: planning ranges for 20 remodel and repair project types in the Seattle area, with the material, labor and permit split, plus return-on-investment and financing figures.\n- Hiring Kolmo: a quote request or a proposed walkthrough time, sent only with the person's own name and contact details. Someone who already has a Kolmo quote link can read the quote, accept or decline it after confirming the total, and open the quote page on kolmo.io where its invoices are paid.\n\nWho it is for: homeowners, property managers and small businesses planning work in western Washington, and the contractors who build it.\n\nLimits: permit and parcel data cover Washington only; outside it the tools say there is no rule instead of guessing. Cost figures are planning ranges for Seattle-area work, not quotes; a site visit sets the price. No account or sign-in is needed.",
+        "developerName": "Kolmo Construction",
+        "category": "Productivity",
+        "capabilities": [
+          "Check permit requirements for a Washington city",
+          "Look up zoning, setbacks and overlays for an address",
+          "Estimate a city's permit fee",
+          "Check a Washington contractor's license, bond and insurance",
+          "Estimate the cost of a remodel or repair",
+          "Request a quote or a walkthrough from Kolmo"
+        ],
+        "websiteURL": "https://www.kolmo.io",
+        "supportURL": "https://www.kolmo.io/contact",
+        "privacyPolicyURL": "https://www.kolmo.io/privacy-policy",
+        "termsOfServiceURL": "https://www.kolmo.io/terms-of-service",
+        "defaultPrompt": [
+          "Do I need a permit to build a 30-inch-high deck in Seattle?",
+          "Is this Washington contractor licensed, bonded and insured?",
+          "What would a 12x16 composite deck cost in the Seattle area?"
+        ],
+        "brandColor": "#36484C",
+        "brandColorDark": "#D8973C",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Permit requirement for a deck in a covered city",
+              "prompt": "Do I need a permit to build a 30-inch-high deck in Seattle?",
+              "tools_triggered": "check_permit_requirements",
+              "expected_behavior": "Says a permit is required, names the rule that decides it (decks more than 18 inches above grade), lists the conditions that can change the answer, and links Seattle's source page with the date Kolmo verified it."
+            },
+            {
+              "description": "License, bond and insurance check for a named Washington contractor",
+              "prompt": "Is KOLMO LLC, license KOLMOL*753JS, licensed, bonded and insured in Washington?",
+              "tools_triggered": "check_contractor_license_status",
+              "expected_behavior": "Identifies the one matching business and reports its license status and expiry, bond amount and surety, insurance amount and carrier, with a link to the L&I verification page and L&I named as the source."
+            },
+            {
+              "description": "Permit fee estimate from a city's fee schedule",
+              "prompt": "Estimate the building permit fee in Renton for a $45,000 addition.",
+              "tools_triggered": "estimate_permit_fee",
+              "expected_behavior": "Returns a fee breakdown (building fee, plan review, surcharges, total), the valuation bracket used and the written formula."
+            },
+            {
+              "description": "Zoning and setbacks for a street address",
+              "prompt": "What's the zoning at 1055 S Grady Way, Renton, WA 98057?",
+              "tools_triggered": "lookup_parcel_by_address",
+              "expected_behavior": "Finds the parcel and reports its zoning code with the source URL, the setbacks and any overlays."
+            },
+            {
+              "description": "Planning cost range for a deck",
+              "prompt": "Rough cost for a new 12x16 composite deck, about 3 feet off the ground, with 40 feet of wood railing and 3 stairs, in Seattle?",
+              "tools_triggered": "get_estimate (after list_project_types or get_material_options if needed)",
+              "expected_behavior": "Gives a low-to-high cost range marked as a planning range, not a quote, with the material, labor and permit split, the line items and the number of days."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Location outside Washington. The plugin covers Washington only and must not lend another city's rule.",
+              "prompt": "Do I need a permit for a deck in Portland, Oregon?"
+            },
+            {
+              "description": "Ambiguous contractor name. Several businesses match, so the plugin must ask which one rather than report one of them.",
+              "prompt": "Is Smith Construction licensed?"
+            },
+            {
+              "description": "Quote request without the person's contact details. The plugin must ask for the person's own name and email and never file a request with invented details.",
+              "prompt": "Send Kolmo a quote request for my kitchen remodel."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "Nothing is sold or paid for inside ChatGPT. A person who already has a Kolmo quote link is sent to that quote's page on kolmo.io, where its invoices are paid."
+      },
+      "publication": {
+        "countries": [
+          "US"
+        ],
+        "release_notes": "First release. Washington permit rules cited to each city's own source, address-level zoning and setbacks, permit fee estimates from city fee schedules, live L&I license, bond and insurance checks for any Washington contractor, Seattle-area cost ranges, and quote and walkthrough requests that need the person's own contact details. No account needed."
+      }
+    }
+  }
+}

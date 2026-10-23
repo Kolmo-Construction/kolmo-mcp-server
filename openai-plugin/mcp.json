@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "kolmo": {
+      "type": "streamable-http",
+      "url": "https://www.kolmo.io/mcp"
+    }
+  }
+}

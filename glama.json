@@ -158,6 +158,10 @@
       "description": "Get home improvement financing options for a Seattle remodeling project."
     },
     {
+      "name": "find_rebates",
+      "description": "Seattle-area energy rebates (PSE, Seattle City Light, Seattle Clean Heat, HomeWise, WA HEAR) for a job: what each pays, who must install it, the price after rebates, and the program page with the date Kolmo read it."
+    },
+    {
       "name": "request_walkthrough",
       "description": "Request an on-site walkthrough at 1-5 times the person proposes: 24 h to 60 days out, starting Mon-Fri 8 AM-4 PM or Sat 9 AM-12 PM Pacific."
     },
@@ -171,7 +175,7 @@
     },
     {
       "name": "get_payment_link",
-      "description": "Invoices for an accepted Kolmo quote, with amount, status and the Stripe page where the person pays."
+      "description": "Invoices for an accepted Kolmo quote, with amount, status and the kolmo.io quote page where the person pays them."
     }
   ]
 }
