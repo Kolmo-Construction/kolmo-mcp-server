@@ -26,7 +26,7 @@ answers can be attributed and verified.
 **Transport:** Streamable HTTP (JSON-RPC 2.0), CORS open
 **Discovery:** `https://www.kolmo.io/.well-known/mcp.json`
 **Docs:** https://www.kolmo.io/developers
-**Server version:** `1.7.0`
+**Server version:** `1.8.0`
 
 ## Connect
 
