@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "kolmo-construction",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Washington permit rules, parcel zoning, contractor license checks and Seattle-area remodel cost ranges from Kolmo Construction, a Seattle-area general contractor.",
   "author": {
     "name": "Kolmo Construction",
@@ -42,8 +42,8 @@
         "termsOfServiceURL": "https://www.kolmo.io/terms-of-service",
         "defaultPrompt": [
           "Do I need a permit to build a 30-inch-high deck in Seattle?",
-          "Is this Washington contractor licensed, bonded and insured?",
-          "What would a 12x16 composite deck cost in the Seattle area?"
+          "What does a kitchen remodel cost in Seattle?",
+          "Is this Washington contractor licensed, bonded and insured?"
         ],
         "brandColor": "#36484C",
         "brandColorDark": "#D8973C",
@@ -57,7 +57,7 @@
               "description": "Permit requirement for a deck in a covered city",
               "prompt": "Do I need a permit to build a 30-inch-high deck in Seattle?",
               "tools_triggered": "check_permit_requirements",
-              "expected_behavior": "Says a permit is required, names the rule that decides it (decks more than 18 inches above grade), lists the conditions that can change the answer, and links Seattle's source page with the date Kolmo verified it."
+              "expected_behavior": "Says a permit is required, names the rule that decides it (decks more than 18 inches above grade), lists the conditions that can change the answer, and links Seattle's source page with the date Kolmo verified it. The card shows the verdict, what triggers it, the fee example, inspections and the source."
             },
             {
               "description": "License, bond and insurance check for a named Washington contractor",
@@ -82,6 +82,12 @@
               "prompt": "Rough cost for a new 12x16 composite deck, about 3 feet off the ground, with 40 feet of wood railing and 3 stairs, in Seattle?",
               "tools_triggered": "get_estimate (after list_project_types or get_material_options if needed)",
               "expected_behavior": "Gives a low-to-high cost range marked as a planning range, not a quote, with the material, labor and permit split, the line items and the number of days."
+            },
+            {
+              "description": "A cost question with no details: priced options instead of a list of questions",
+              "prompt": "What does a kitchen remodel cost in Seattle?",
+              "tools_triggered": "get_estimate",
+              "expected_behavior": "Shows three scope options (cosmetic refresh, standard remodel, full gut), cheapest first, each with a planning range and days of work, names the kitchen size it assumed, and asks which option is closest. The card shows the options and a size control that re-prices them."
             }
           ],
           "negative": [
@@ -106,7 +112,7 @@
         "countries": [
           "US"
         ],
-        "release_notes": "First release. Washington permit rules cited to each city's own source, address-level zoning and setbacks, permit fee estimates from city fee schedules, live L&I license, bond and insurance checks for any Washington contractor, Seattle-area cost ranges, and quote and walkthrough requests that need the person's own contact details. No account needed."
+        "release_notes": "Visual cards in ChatGPT for the four main answers: a permit verdict with the rule that triggers it, other approvals, a fee example, inspections and the city's source; a cost range with the material, labor and permit split, scope options on one scale and a size control that re-prices in place; a contractor's license, bond and insurance status with expiry dates; and a parcel's zoning, limits, setback diagram and overlays. A cost question with no details now gets priced options instead of a list of questions. Weather windows fall back to the National Weather Service, and places outside Washington get a plain answer instead of a nearby city's rule."
       }
     }
   }
