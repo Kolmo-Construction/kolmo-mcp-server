@@ -112,7 +112,7 @@
         "countries": [
           "US"
         ],
-        "release_notes": "Visual cards in ChatGPT for the four main answers: a permit verdict with the rule that triggers it, other approvals, a fee example, inspections and the city's source; a cost range with the material, labor and permit split, scope options on one scale and a size control that re-prices in place; a contractor's license, bond and insurance status with expiry dates, and when a name matches several businesses, a list that opens the one picked; and a parcel's zoning, limits, setback diagram and overlays. A cost question with no details now gets priced options instead of a list of questions. Weather windows fall back to the National Weather Service, and places outside Washington get a plain answer instead of a nearby city's rule."
+        "release_notes": "Visual cards in ChatGPT for the four main answers: a permit verdict with the rule that triggers it, the questions that settle it answered in the card, other approvals, a fee example, inspections and the city's source; a cost range with the material, labor and permit split, scope options on one scale, each priced in the card with one tap, and a size control that re-prices in place; a contractor's license, bond and insurance status with expiry dates, and when a name matches several businesses, a list that opens the one picked; and a parcel's zoning, limits, setback diagram and overlays. A cost question with no details now gets priced options instead of a list of questions. Weather windows fall back to the National Weather Service, places outside Washington get a plain answer instead of a nearby city's rule, and a license check made while L&I reloads its data says so instead of reporting no match."
       }
     }
   }
