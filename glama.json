@@ -27,7 +27,7 @@
     },
     {
       "name": "list_projects",
-      "description": "List Kolmo's completed projects — residential remodels AND commercial / public-works work — with photos and locations."
+      "description": "List Kolmo's completed projects — residential remodels AND commercial / public-works work — with photos, locations and Kolmo's Google rating."
     },
     {
       "name": "get_project",

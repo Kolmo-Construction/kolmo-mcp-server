@@ -74,7 +74,7 @@ gemini mcp add --transport http kolmo https://www.kolmo.io/mcp
 | `get_service` | Get full details for a specific residential service by its slug. |
 | `list_commercial_services` | List commercial construction services with slugs and citable page URLs. |
 | `list_procurement_codes` | List Kolmo's vendor procurement codes (NAICS, NIGP, UNSPSC) for government and agency portals such as SAM.gov, WA WEBS, OpenGov, MRSC, King County, and City of Seattle. |
-| `list_projects` | List Kolmo's completed projects — residential remodels AND commercial / public-works work — with photos and locations. |
+| `list_projects` | List Kolmo's completed projects — residential remodels AND commercial / public-works work — with photos, locations and Kolmo's Google rating. |
 | `get_project` | Get full details for a specific project by its slug, including before/after images and testimonial. |
 | `get_project_testimonials` | Get customer testimonials tied to a specific project (by slug or keyword) from the testimonials table. |
 | `list_blog_posts` | List published blog posts about home remodeling, renovation costs, and construction tips. |

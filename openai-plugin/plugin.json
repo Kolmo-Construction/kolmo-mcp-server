@@ -88,6 +88,12 @@
               "prompt": "What does a kitchen remodel cost in Seattle?",
               "tools_triggered": "get_estimate",
               "expected_behavior": "Shows three scope options (cosmetic refresh, standard remodel, full gut), cheapest first, each with a planning range and days of work, names the kitchen size it assumed, and asks which option is closest. The card shows the options and a size control that re-prices them."
+            },
+            {
+              "description": "Kolmo's finished projects of one kind, with photos",
+              "prompt": "Show me decks Kolmo Construction has built.",
+              "tools_triggered": "list_projects",
+              "expected_behavior": "Lists Kolmo's completed deck and outdoor projects with their locations and a link to each project's page. The card shows the projects' photos in a row, Kolmo's Google rating, reviews in the reviewers' own words, and a short form that sends a request to Kolmo."
             }
           ],
           "negative": [
