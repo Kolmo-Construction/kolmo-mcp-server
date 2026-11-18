@@ -42,7 +42,7 @@ gemini mcp add --transport http kolmo https://www.kolmo.io/mcp
 |--------|-----|
 | **Claude.ai / Claude Desktop** | Settings → Connectors → *Add custom connector* → name `Kolmo`, URL above, no auth |
 | **ChatGPT** | Settings → Connectors → Advanced → *Developer mode* → Create → name `Kolmo`, URL above, auth: none |
-| **Meta Muse** | Ask Muse: *Create a custom connector for Kolmo Construction — an MCP server at the URL above, streamable HTTP, no login or API key.* Muse builds it and asks before the one write (a quote request) |
+| **Meta Muse** | Ask Muse: *Create a custom connector for Kolmo Construction — an MCP server at the URL above, streamable HTTP, no login or API key.* Muse builds it and asks you before any of the three writes (a quote request, a walkthrough request, an answer to a Kolmo quote) |
 | **Cursor** | Click *Add to Cursor* above, or `.cursor/mcp.json`: `{"mcpServers":{"kolmo":{"url":"https://www.kolmo.io/mcp"}}}` |
 | **VS Code (Copilot)** | Click *Install in VS Code* above, or `.vscode/mcp.json`: `{"servers":{"kolmo":{"type":"http","url":"https://www.kolmo.io/mcp"}}}` |
 | **Windsurf** | `~/.codeium/windsurf/mcp_config.json`: `{"mcpServers":{"kolmo":{"serverUrl":"https://www.kolmo.io/mcp"}}}` |
@@ -58,11 +58,100 @@ gemini mcp add --transport http kolmo https://www.kolmo.io/mcp
 | Zoning, setbacks, overlays at an address | `lookup_parcel_by_address` |
 | What will the permit cost? | `estimate_permit_fee` |
 | Is \<contractor\> licensed, bonded, insured? | `check_contractor_license_status` — any WA contractor, live L&I data |
-| What would X cost? | `get_estimate` (`list_project_types` names the fields, `get_material_options` the material IDs) |
+| What would X cost? | `get_estimate` — a project type alone returns priced options; "painting" alone: ask interior or exterior first (`list_project_types` names the fields, `get_material_options` the material IDs) |
 | Is the remodel worth it / how to pay for it | `get_project_roi` · `get_financing_options` |
 | Who is Kolmo, show me the work | `get_business_info` · `list_reviews` · `list_projects` |
 | Anything else | `search_content` |
 | Ready to hire | `submit_contact_request` (`dryRun: true` previews without sending) |
+| Can someone come look at it? | `request_walkthrough` (the person proposes times; Kolmo confirms one) |
+| I have a Kolmo quote link | `get_my_quote` → `respond_to_quote` (accepting needs the person's yes and the total) → `get_payment_link` |
+
+<!-- generated:calling:start -->
+## Calling it by hand
+
+Four requests, in this order. Run byte for byte against the live server by `npm run mcp:smoke` in the source repo.
+
+1. **Initialize**: HTTP 200. Keep the Mcp-Session-Id response header; every later request sends it.
+
+```bash
+curl -X POST https://www.kolmo.io/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "initialize",
+    "params": {
+      "protocolVersion": "2025-06-18",
+      "capabilities": {},
+      "clientInfo": {
+        "name": "my-app",
+        "version": "1.0.0"
+      }
+    }
+  }'
+```
+
+2. **Confirm initialization**: HTTP 202, no body. MCP requires this notification before any other request.
+
+```bash
+curl -X POST https://www.kolmo.io/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -H "Mcp-Session-Id: <from the initialize response header>" \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "notifications/initialized"
+  }'
+```
+
+3. **List the tools**: HTTP 200, every tool with its input schema and annotations.
+
+```bash
+curl -X POST https://www.kolmo.io/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -H "Mcp-Session-Id: <from the initialize response header>" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 2,
+    "method": "tools/list"
+  }'
+```
+
+4. **Call a tool**: HTTP 200, priced interior-painting options with a planning range for each.
+
+```bash
+curl -X POST https://www.kolmo.io/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -H "Mcp-Session-Id: <from the initialize response header>" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 3,
+    "method": "tools/call",
+    "params": {
+      "name": "get_estimate",
+      "arguments": {
+        "projectType": "interior-painting",
+        "project": {}
+      }
+    }
+  }'
+```
+
+`get_estimate` with a project type alone (`project: {}`, or left out) returns priced scope options for a kitchen, bathroom, basement, ADU, deck or interior painting job: show every option with its range, ask which is closest, then call again with the person's answers. For "painting" alone, ask the person interior or exterior first.
+
+### Tools that change anything
+
+Every other tool is annotated `readOnlyHint: true`.
+
+| Tool | What it does | Before calling it for real |
+|------|--------------|----------------------------|
+| `submit_contact_request` | Files a quote request with Kolmo and emails the team. Kolmo replies within 1 business day. | Send the person's own name, email and phone, never the agent's, after they agree to it. `dryRun: true` returns a preview and sends nothing. |
+| `request_walkthrough` | Asks Kolmo for an on-site visit at 1 to 5 times the person proposes. Kolmo confirms one within 1 business day; until then it is requested, not booked. | Check the times and the person's own contact details and address with them first. `dryRun: true` returns a preview and sends nothing. |
+| `respond_to_quote` | Accepts, declines or asks for changes on a Kolmo quote. Accepting binds the person to the work at that total; declining is final. | Show the scope, options and total from `get_my_quote` and get the person's explicit yes. Accepting or declining is refused without `personConfirmed: true`, and accepting without a `confirmedTotal` that matches the quote. `changes_requested` needs notes only. |
+<!-- generated:calling:end -->
 
 <!-- generated:tools:start -->
 ## Tools (43)
